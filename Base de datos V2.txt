@@ -1,0 +1,58 @@
+V2"
+          !-------------------------------------------------------------!
+          !                   Ingresar a MySQL                          !
+          !                   mysql -u root -p                          !
+          !                                                             !
+          !               Ver las bases de datos                        !
+          !                     show databases                          ! 
+          !                                                             !
+          !                  Crear base de datos                        !
+          !               create database zoologico                     !
+          !                                                             !
+          !                    ver bases de datos                       !
+          !                      show databases;                        !
+          !                                                             !
+          !                 Entar a una base de datos                   !
+          !             use (Nombre de la base de datos)                !
+          !                                                             !
+          !         Para añadir dentro de una tabla se usa:             !
+          !alter table(nombre de la tabla) add (lo que voy a aumentar)  !
+          !                                                             !
+          !          Para añadir dentro de una tabla se usa:            !
+          !alter table(nombre de la tabla) add (lo que voy a aumentar)  !
+          !                                                             !
+          !-------------------------------------------------------------!
+
+           create database zoologico;
+           Show data bases;
+           
+
+    ------------------------------------------------------------------------
+
+Desechado
+           
+           create table clases(
+	   id_clase int not null,
+	   nom_clase varchar(40) not null,
+	   id_animal int not null,
+	   foreign key(id_animal) references animales(animal_id));
+           
+           
+           create table familias(
+	   id_familia int not null,
+	   nom_familia varchar(40) not null,
+	   id_clase int not null,
+	   foreign key(id_clase) references clases(clase_id));
+           
+           create table especies(
+	   id_especie int not null,
+	   nom_esécie varchar(40) not null,
+	   id_familia int not null,
+	   foreign key(id_familia) references familias(familia_id));
+	  
+           create table generos(
+	   id_genero int not null,
+	   nom_genero varchar(40) not null,
+	   id_especie int not null,
+	   foreign key(id_especie) references especies(especie_id));
+           
